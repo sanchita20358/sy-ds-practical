@@ -7,7 +7,7 @@ using namespace std;
 string queue[MAX];
 int front = -1, rear = -1;
 
-// Enqueue Operation
+
 void enqueue(string request)
 {
     if ((rear + 1) % MAX == front)
@@ -21,10 +21,10 @@ void enqueue(string request)
 
         rear = (rear + 1) % MAX;
         queue[rear] = request;
-    }
+	}
 }
 
-// Dequeue Operation
+
 void dequeue()
 {
     if (front == -1)
@@ -46,7 +46,7 @@ void dequeue()
     }
 }
 
-// Display Operation
+
 void display()
 {
     if (front == -1)
@@ -54,7 +54,7 @@ void display()
         cout << "Queue is Empty\n";
         return;
     }
-
+ 
     int i = front;
 
     while (true)
@@ -67,13 +67,18 @@ void display()
         i = (i + 1) % MAX;
     }
 }
-
+void priorityCustomer(string request)
+{ 
+cout<<"priority customer:"<<request <<endl;
+}
 int main()
 {
     enqueue("Customer 1");
     enqueue("Customer 2");
     enqueue("Customer 3");
-
+    enqueue("Customer 4");
+    enqueue("Customer 5");
+      
     cout << "Queue members:\n";
     display();
 
@@ -82,7 +87,9 @@ int main()
 
     cout << "\nQueue After Dequeue:\n";
     display();
-
+     
+     cout<<"\n";
+     priorityCustomer("customer 2");
+     
     return 0;
 }
-
